@@ -149,6 +149,17 @@ trait HasRole
 
         $this->roles()->attach( $role );
     }
+    
+    public function attachRole($role, $project_id)
+    {
+    	if( is_object($role))
+    		$role = $role->getKey();
+    
+    	if( is_array($role))
+    		$role = $role['id'];
+    
+    	$this->roles()->attach( $role, array('project_id', $project_id) );
+    }
 
     /**
      * Alias to eloquent many-to-many relation's
