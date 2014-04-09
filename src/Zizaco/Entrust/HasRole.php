@@ -139,6 +139,7 @@ trait HasRole
      *
      * @return void
      */
+    /*
     public function attachRole( $role )
     {
         if( is_object($role))
@@ -149,6 +150,7 @@ trait HasRole
 
         $this->roles()->attach( $role );
     }
+    */
     
     /**
      * Alias to eloquent many-to-many relation's
