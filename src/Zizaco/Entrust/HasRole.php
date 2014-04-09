@@ -164,6 +164,7 @@ trait HasRole
     	if( is_array($role))
     		$role = $role['id'];
     
+    	Log::info("[HasRole@attachRole] project_id: " . $project_id);
     	$this->roles()->attach( $role, array('project_id', $project_id) );
     }
 
