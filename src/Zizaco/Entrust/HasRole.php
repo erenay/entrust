@@ -150,6 +150,10 @@ trait HasRole
         $this->roles()->attach( $role );
     }
     
+    /**
+     * Alias to eloquent many-to-many relation's
+     * attach() method
+     */
     public function attachRole($role, $project_id)
     {
     	if( is_object($role))
