@@ -152,7 +152,7 @@ trait HasRole
     
     /**
      * Alias to eloquent many-to-many relation's
-     * attach() method
+     * attach() method 
      */
     public function attachRole($role, $project_id)
     {
