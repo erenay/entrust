@@ -1,6 +1,8 @@
 <?php namespace Zizaco\Entrust;
 
 use Symfony\Component\Process\Exception\InvalidArgumentException;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 use Config;
 
 trait HasRole
@@ -158,14 +160,19 @@ trait HasRole
      */
     public function attachRole($role, $project_id)
     {
+    	$log = new Logger('entrust_logger');
+    	$log->pushHandler(new StreamHandler('app/storage/logs/entrust.log', Logger::DEBUG));
+    	
     	if( is_object($role))
     		$role = $role->getKey();
     
     	if( is_array($role))
     		$role = $role['id'];
     
-    	Log::info("[HasRole@attachRole] project_id: " . $project_id);
-    	$this->roles()->attach( $role, array('project_id', $project_id) );
+    	$log->addInfo("[HasRole@attachRole] role: " . $role . ", project_id: " . $project_id);
+    	
+    	$this->roles()->attach( $role, array('project_id' => $project_id) );
+    	
     }
 
     /**

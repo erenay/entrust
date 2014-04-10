@@ -21,7 +21,9 @@
     "require-dev": {
         "illuminate/database": "4.x",
         "mockery/mockery": "0.7.2",
-        "zizaco/factory-muff": "dev-master"
+        "zizaco/factory-muff": "dev-master",
+        "monolog/monolog": "1.*"
+        
     },
     "repositories": [
         {
